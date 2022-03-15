@@ -1,0 +1,30 @@
+<idea-plugin>
+    <id>com.ganzhenghao.mybatis-log-parameter-stitching</id>
+    <name>Mybatis-Log</name>
+    <vendor email="2454023207@qq.com" url="http://www.yourcompany.com">Ganzhenghao</vendor>
+
+    <description><![CDATA[
+    Mybatis SQL 语句拼接,将控制台的输出解析后，自动拼接到 SQL 语句中<br>
+    基于 https://github.com/starxg/mybatis-log-plugin-free 修改
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <consoleFilterProvider implementation="com.ganzhenghao.mybatislog.MyBatisLogConsoleFilterProvider"/>
+        <executor implementation="com.ganzhenghao.mybatislog.MyBatisLogExecutor"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+
+        <action id="MybatisLogAction" class="com.ganzhenghao.mybatislog.actions.MybatisLogAction" text="Mybatis日志参数拼接"
+                description="Mybatis日志参数拼接" icon="/icons/ibatis.svg">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="before" relative-to-action="ConsoleView.ClearAll"/>
+        </action>
+    </actions>
+</idea-plugin>
