@@ -9,5 +9,8 @@ WHERE id = ?
   AND name = ?
   AND age = ?
   AND email = ?
-  AND deleted = 0 ==> Parameters: null, 1(Long), 张三(String), 18(Integer), x@y.com(String)
+  AND deleted = 0 
+  ==> Parameters: null, 1(Long), 张三(String), 18(Integer), x@y.com(String)
+  
+  这样的语句会被错误拼接
 ```
